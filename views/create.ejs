@@ -1,0 +1,74 @@
+<%- include('partial/head'); -%>
+
+  <!-- ***** Header Area Start ***** -->
+  <%- include('partial/header'); -%>
+  <!-- ***** Header Area End ***** -->
+  
+ 
+        </div>
+        <div class="contact-page section">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="section-heading">
+                  <h6>Nazawaza's diy workshop</h6>
+                  <h2>Workshop info:</h2>
+                </div>
+                <p>all workshops take place in d123 mtu main campus.
+                All workshops are free of charge and take place at 12pm on the date selected.
+                For info on parking and other facilities please contact mtu below.
+                </p>
+                <div class="row">
+                  <div class="col-lg-12">
+                    <div class="item phone">
+                      <img src="assets/images/phone-icon.png" alt="" style="max-width: 52px;">
+                      <h6>(021) 432 6100<br><span>MTU Phone number</span></h6>
+                    </div>
+                  </div>
+                  <div class="col-lg-12">
+                    <div class="item email">
+                      <img src="assets/images/email-icon.png" alt="" style="max-width: 52px;">
+                      <h6>www.mtu.ie<br><span>MTU website</span></h6>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6">
+              <form id="contact-form" class="booking-form" action="/create" method="post">
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <fieldset>
+                        <label for="name">Full Name</label>
+                        <input type="text" name="name" id="name" placeholder="Your Name..." autocomplete="on" required>
+                      </fieldset>
+                    </div>
+                    <div class="col-lg-12">
+                      <fieldset>
+                        <label for="email">Email Address</label>
+                        <input type="email" name="email" id="email" placeholder="Your E-mail..." required>
+                      </fieldset>
+                    </div>
+                    <div class="col-lg-12">
+                      <fieldset>
+                        <label for="date">Date</label>
+                        <input type="date" name="date" id="date">
+                      </fieldset>
+                    </div>
+                    <div class="col-lg-12">
+                      <fieldset>
+                        <button type="submit" id="form-submit" class="orange-button">Send Message</button>
+                      </fieldset>
+                    </div>
+                  </div>
+                </form>
+              </div>
+        
+
+
+  <%- include('partial/footer'); -%>
+  <!-- Scripts -->
+  <!-- Bootstrap core JavaScript -->
+  <%- include('partial/mainbt'); -%>
+
+  </body>
+</html>

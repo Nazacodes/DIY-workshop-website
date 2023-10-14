@@ -1,0 +1,28 @@
+
+
+<script>
+  // Select all links with hashes
+  var links = document.querySelectorAll('a[href^="#"]');
+
+  // Add smooth scroll to all links with hashes
+  links.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+
+      const href = this.getAttribute('href');
+      const target = document.querySelector(href);
+      const topOffset = 100; // Adjust this value to offset the scroll position
+
+      window.scrollTo({
+        top: target.offsetTop - topOffset,
+        behavior: 'smooth'
+      });
+    });
+  });
+</script><footer>
+  <div class="container">
+    <div class="col-lg-12">
+      <p>Severside DEV.&nbsp||&nbsp Email:&nbsp  ogwudiegwuc@gmail.com&nbsp||&nbsp Github:&nbsp <a rel="Nazacodes" href="#nazacodes" target="naza">Nazacodes</a></p>
+    </div>
+  </div>
+</footer>

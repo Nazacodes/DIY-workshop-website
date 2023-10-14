@@ -1,0 +1,84 @@
+<%- include('partial/head'); -%>
+
+<!-- ***** Header Area Start ***** -->
+<%- include('partial/header'); -%>
+<!-- ***** Header Area End ***** -->
+<div id="page-title">
+  <h1>Current bookings</h1>
+  <div id="sort-buttons">
+    <button id="newest-booking-button">Newest booking</button>
+    <button id="closest-date-button">Closest date</button>
+  </div>
+</div>
+<div id="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% bookings.forEach(function(booking) { %>
+        <tr>
+          <td><%= booking.name %></td>
+          <td><%= booking.email %></td>
+          <td><%= booking.date.toDateString() %></td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+</div>
+
+<script>
+  const bookingsTable = document.querySelector('table');
+  const newestBookingButton = document.querySelector('#newest-booking-button');
+  const closestDateButton = document.querySelector('#closest-date-button');
+
+  newestBookingButton.addEventListener('click', function() {
+    sortBookingsByNewest();
+  });
+
+  closestDateButton.addEventListener('click', function() {
+    sortBookingsByClosestDate();
+  });
+
+  function sortBookingsByNewest() {
+    const rows = Array.from(bookingsTable.querySelectorAll('tbody tr'));
+
+    rows.sort(function(a, b) {
+      const aDate = new Date(a.cells[2].textContent);
+      const bDate = new Date(b.cells[2].textContent);
+
+      return bDate - aDate;
+    });
+
+    rows.forEach(function(row) {
+      bookingsTable.querySelector('tbody').appendChild(row);
+    });
+  }
+
+  function sortBookingsByClosestDate() {
+    const rows = Array.from(bookingsTable.querySelectorAll('tbody tr'));
+
+    rows.sort(function(a, b) {
+      const aDate = new Date(a.cells[2].textContent);
+      const bDate = new Date(b.cells[2].textContent);
+
+      return aDate - bDate;
+    });
+
+    rows.forEach(function(row) {
+      bookingsTable.querySelector('tbody').appendChild(row);
+    });
+  }
+</script>
+
+  <%- include('partial/footer'); -%>
+  <!-- Scripts -->
+  <!-- Bootstrap core JavaScript -->
+  <%- include('partial/mainbt'); -%>
+
+  </body>
+</html>

@@ -1,0 +1,22 @@
+ <form class="booking-form" action="/create" method="post">
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" required>
+
+        <label for="date">Date:</label>
+        <input type="date" name="date" id="date" required>
+
+        <label for="description">Description:</label>
+        <textarea name="description" id="description" rows="4" required></textarea>
+
+        <button type="submit">Create Booking</button>
+    </form>
+    <ul>
+        <% bookings.forEach(booking => { %>
+            <li>
+                <p>Name: <%= booking.name %></p>
+                <p>Email: <%= booking.email %></p>
+                <p>Date: <%= booking.date.toDateString() %></p>
+                <!-- Add a form or button here for deleting each booking -->
+            </li>
+        <% }); %>
+    </ul>
